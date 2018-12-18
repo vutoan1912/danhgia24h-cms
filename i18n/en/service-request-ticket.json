@@ -1,0 +1,50 @@
+{
+  "service.rq.tickets": {
+    "messages":{
+      "error":{
+        "authentication":"<strong>Failed to sign in!</strong> Please check your credentials and try again."
+      }
+    },
+    "common":{
+      "active":"Active",
+      "archived":"Archived",
+      "restore":"Restore",
+      "archive":"Archive",
+      "confirmValidation":"Confirm Validation",
+      "apply":"Apply",
+      "cancel":"Cancel",
+      "columns":"Columns",
+      "all":"All"
+    },
+    "fields":{
+      "title":"Tickets list",
+      "startDate":"Start date",
+      "endDate":"End date",
+      "labelStartDate":"From",
+      "labelEndDate":"To",
+      "labelPrioritizeBranch":"Prioritize branch",
+      "search":"Search",
+      "export":"Export File",
+      "placehBranch": "Choose prioritize branch"
+    },
+    "table":{
+      "index":"No.",
+      "ticketNo":"Ticket No",
+      "title":"Title",
+      "status":"Status",
+      "serviceSubCategory":"Service Sub-Category",
+      "fullName":"Full name",
+      "dao":"Dao",
+      "cif":"CIF",
+      "idNumber":"ID number",
+      "expectedCloseDate":"Expected close date",
+      "createdTime":"Created time",
+      "modifiedTime":"Modified time",
+      "assignedTo":"Assigned to",
+      "description":"Description",
+      "creator":"Creator",
+      "branch":"Branch",
+      "branchName":"Branch name"
+    }
+  }
+}

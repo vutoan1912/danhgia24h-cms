@@ -1,0 +1,71 @@
+{
+    "leads": {
+        "messages": {
+            "error": {
+                "authentication": "<strong>Đăng nhập không thành công.</strong> Vui lòng kiểm tra thông tin và thử lại."
+            }
+        },
+        "common": {
+            "active": "Active",
+            "archived": "Archived",
+            "restore": "Restore",
+            "archive": "Archive",
+            "confirmValidation": "Chấp nhận xác thực",
+            "apply": "Apply",
+            "cancel": "Cancel"
+        },
+        "fields": {
+            "phone": "Số điện thoại",
+            "cmnd": "CMND",
+            "nameCustomer": "Tên khách hàng",
+            "fromDate": "Từ ngày",
+            "toDate": "Đến ngày",
+            "CIF": "CIF",
+            "chooseStatus": "Chọn trạng thái",
+            "chooseLeadSource": "Chọn lead source",
+            "searchText": "Tìm kiếm",
+            "searchClear": "Bỏ DK lọc",
+            "addLead": "Thêm KH",
+            "detail_title": "Thông tin chi tiết khách hàng",
+            "detail_fullName": "Họ và tên",
+            "detail_phone": "Số Điện Thoại Chính",
+            "detail_mobile": "Số Điện Thoại Khác",
+            "detail_addr": "Địa chỉ",
+            "detail_email": "Email",
+            "detail_birhday": "Ngày sinh",
+            "detail_cmnd": "CMND",
+            "detail_gender": "Giới tính",
+            "detail_job": "Nghề nghiệp",
+            "detail_productSale": "Sản phảm bán dự kiến",
+            "detail_editLead": "Sửa thông tin",
+            "detail_save": "Lưu thay đổi",
+            "detail_cancel": "Bỏ qua",
+            "detail_des": "Nhận xét",
+            "detail_redirect": "Xem đầy đủ chi tiết",
+            "total_salary": "Thu nhập"
+        },
+        "activity": {
+            "type": "Loại hình hoạt động",
+            "subject": "Tiêu Đề",
+            "status": "Trạng thái",
+            "response": "Kết quả/Hoạt động tiếp theo",
+            "des": "Nhận xét",
+            "startDate": "Ngày bắt đầu",
+            "endDate": "Ngày kết thúc",
+            "startTime": "Giờ bắt đầu",
+            "endTime": "Giờ kết thúc",
+            "assigned": "Cá nhân/ Đơn vị chịu trách nhiệm",
+            "Visibility": "Chế độ hiển thị"
+        },
+        "table": {
+            "userName": "User name",
+            "phone": "Phone Number",
+            "cmnd": "CMND",
+            "clc": "Click to call",
+            "lead": "LeadSource",
+            "leadStatus": "Lead Status",
+            "dateSub": "Date Customer submit",
+            "action": "Action"
+        }
+    }
+}

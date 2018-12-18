@@ -1,0 +1,55 @@
+{
+    "leads": {
+        "messages": {
+            "error": {
+                "authentication": "<strong>Đăng nhập không thành công.</strong> Vui lòng kiểm tra thông tin và thử lại."
+            }
+        },
+        "common": {
+            "active": "Active",
+            "archived": "Archived",
+            "restore": "Restore",
+            "archive": "Archive",
+            "confirmValidation": "Chấp nhận xác thực",
+            "apply": "Apply",
+            "cancel": "Cancel"
+        },
+        "fields": {
+            "nameCustomer": "Tên khách hàng",
+            "fromDate": "Từ ngày",
+            "toDate": "Đến ngày",
+            "CIF": "CIF",
+            "chooseStatus": "Chọn trạng thái",
+            "chooseLeadSource": "Chọn lead source",
+            "searchText": "Tìm kiếm",
+            "detail_title": "Thông tin chi tiết khách hàng",
+            "detail_fullName": "Họ và tên",
+            "detail_phone": "Số điện thoai",
+            "detail_addr": "Địa chỉ",
+            "detail_email": "Email",
+            "detail_birhday": "Ngày sinh",
+            "detail_cmnd": "CMND",
+            "detail_gender": "Giới tính",
+            "detail_job": "Nghề nghiệp",
+            "detail_productSale": "Sản phảm bán dự kiến",
+            "detail_editLead": "Sửa thông tin",
+            "detail_save": "Lưu thay đổi",
+            "detail_cancel": "Bỏ qua",
+            "table_no": "STT",
+            "table_fullName": "Họ và Tên",
+            "table_phone": "Số điện thoại",
+            "table_cmnd": "CMND",
+            "table_cif": "CIF",
+            "table_LeadSource": "Nguồn Lead",
+            "table_LeadStatus": "Tình trạng Lead",
+            "table_startDate": "Ngày phân bổ",
+            "table_endDate": "Ngày hết hạn",
+            "table_DAO": "Mã DAO",
+            "table_rmName": "Tên RM",
+            "table_cnCode": "Mã CN",
+            "table_cnName": "Tên CN",
+            "table_district": "Mã chi nhánh",
+            "table_region": "Vùng"
+        }
+    }
+}

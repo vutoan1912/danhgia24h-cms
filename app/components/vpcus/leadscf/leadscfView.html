@@ -1,0 +1,122 @@
+<div id="page_content" ng-style="SearchAfService.style_loading" >
+    <div id="page_content_inner">
+        <div class="md-card" >
+
+            <div class="md-card-content">
+                <h3  class="heading_a" >LEADS LIST</h3>
+                <div class="uk-grid" data-uk-grid-margin>
+                    <div class="uk-width-medium-1-2">
+                        <div class="uk-form-row" ng-if="region_display">
+                            <label data-translate="leads.fields.table_region"></label>
+                            <input type="text" class="md-input" md-input ng-model="SearchAfService.region" />
+                        </div>
+                        <div class="uk-form-row">
+                            <div class="uk-width-large-1-1" >
+                                <selectize 
+                                    placeholder="Choose Lead Source" id="selec_adv_1" 
+                                    config="selectize_planets_config"
+                                    options="selectize_planets_options" 
+                                    position="bottom" 
+                                    ng-model="SearchAfService.searchLeadSource" >
+                                </selectize>
+                            </div>
+                        </div>
+                        <div class="uk-form-row">
+                            <label data-translate="leads.fields.table_phone"></label>
+                            <input type="text" class="md-input" md-input ng-model="SearchAfService.phone" />
+                        </div>
+                        <div class="uk-form-row">
+                            <label data-translate="leads.fields.table_cmnd"></label>
+                            <input type="text" class="md-input" md-input ng-model="SearchAfService.cmnd" />
+                        </div>
+
+                    </div>
+                    <div class="uk-width-medium-1-2">
+                        <div class="uk-form-row" ng-if="region_display">
+                            <label data-translate="leads.fields.table_district"></label>
+                            <input type="text" class="md-input" md-input ng-model="SearchAfService.district" />
+                        </div>
+                        <div class="uk-form-row">
+                            <div class="uk-width-large-1-1" >
+                                <selectize
+                                    placeholder="Choose Lead Status" id="selec_adv_1" 
+                                    config="selectize_Leads_config"
+                                    options="selectize_Leads_options" 
+                                    position="bottom" 
+                                    ng-model="SearchAfService.searchLeadStatus" >
+                                </selectize>
+                            </div>
+                        </div>
+                        <div class="uk-form-row">
+                            <label data-translate="leads.fields.CIF"></label>
+                            <input type="text" class="md-input" md-input ng-model="SearchAfService.cif" />
+                        </div>
+                        <div class="uk-form-row" ng-if="dao_display">
+                            <label data-translate="leads.fields.table_DAO"></label>
+                            <input type="text" class="md-input" md-input ng-model="SearchAfService.dao" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="uk-form-row search_buttom">
+                    <a style="width: 20%;" class="md-btn md-btn-wave md-btn-primary" ng-click='doSearch()' data-translate="leads.fields.searchText"></a>
+                </div>
+            </div>
+        </div>
+        <div class="md-card">
+            <div class="md-card-content">
+                <div class="uk-overflow-container search-table-outter wrapper">
+                    <table class="uk-table search-table inner ">
+                        <thead class="table_header">
+                            <tr>
+                                <th class=" No_table" data-translate="leads.fields.table_no"></th>
+                                <th class="" data-translate="leads.fields.table_fullName"></th>
+                                <th class="" data-translate="leads.fields.table_phone"></th>
+                                <th class="" data-translate="leads.fields.table_cmnd"></th>
+                                <th class="" data-translate="leads.fields.table_cif"></th>
+                                <th class="" data-translate="leads.fields.table_LeadSource"></th>
+                                <th class="" data-translate="leads.fields.table_LeadStatus"></th>
+                                <th class="" data-translate="leads.fields.table_startDate"></th>
+                                <th class="" ng-if="dao_display"   data-translate="leads.fields.table_DAO"></th>
+                                <th class="" ng-if="dao_display"  data-translate="leads.fields.table_rmName"></th>
+                                <th class="" ng-if="district_display"  data-translate="leads.fields.table_cnCode"></th>
+                                <th class="" ng-if="district_display" data-translate="leads.fields.table_cnName"></th>
+                                <th class="" ng-if="district_display"  data-translate="leads.fields.table_region"></th>
+                                <th class="" ng-if="action_display"  >Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr dir-paginate="item1 in SearchAfService.table | itemsPerPage: pageSize track by $index" >
+                                <td>{{(paginationCurrent - 1) * pageSize + $index + 1}}</td> 
+                                <td>
+                                    <a target="_blank" href="{{DOMAIN_VTIGER_2}}/index.php?module=Leads&view=Detail&record={{item1.leadid}}" ng-bind-html="item1.lastname"></a>
+                                </td>
+                                <td>{{item1.phone}}</td>
+                                <td>
+                                    <a target="_blank" href="{{DOMAIN_VTIGER_2}}/misv.php?com=tools&elem=getCus&view=gocus&cmt={{item1.cmnd}}&leadid={{item1.leadid}}">{{ item1.cmnd}}</a>
+                                </td>
+                                <td>
+                                    <a target="_blank" href="{{DOMAIN_VTIGER_2}}/misv.php?com=tools&elem=getCus&view=gocus&cif={{item1.cif}}&leadid={{item1.leadid}}" >{{ item1.cif}}</a>
+                                </td>
+                                <td >{{ item1.leadsource}}</td>
+                                <td>{{ item1.leadstatus}}</td>
+                                <td>{{ item1.createdtime}}</td>
+                                <td ng-if="dao_display"  >{{ item1.dao}}</td>
+                                <td ng-if="dao_display"  >{{ item1.user_name}}</td>
+                                <td ng-if="district_display" >{{ item1.branch_code}}</td>
+                                <td ng-if="district_display" >{{ item1.branch_name}}</td>
+                                <td ng-if="district_display" >{{ item1.region}}</td>
+                                <td ng-if="action_display">
+                                    <a target="_blank" href="{{DOMAIN_VTIGER_2}}/misv.php?com=rmAct&func=Tools.addAct&lead_id={{item1.leadid}}" data-uk-tooltip title="Add new activity">Add Activity</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <dir-pagination-controls boundary-links="false" pagination-current="paginationCurrent" template-url="app/templates/dirPagination.tpl.html"></dir-pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

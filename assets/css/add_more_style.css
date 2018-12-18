@@ -1,0 +1,87 @@
+/*css in show window popup*/
+.half_row{
+    width: 45%
+}
+.full_row{
+    padding-left: 36px;
+    width: 95%;
+}
+
+/*fix position popup window*/
+div.k-window{
+    position: fixed
+}
+
+/*fix z-index date picker*/
+.uk-datepicker {
+    z-index: 11056;
+    width: auto;
+    padding: 0;
+}
+
+/*change size space between form input*/
+.space_popup_form{
+    padding-bottom: 0px !important;
+    margin-top: -10px;
+}
+
+/*create event style*/
+.event_lable{
+    width: 12%;
+}
+.event_lable_text{
+    margin-top: 15px;
+}
+.event_select{
+    width: 32%;
+    padding-left: 14px;
+}
+
+.event_date_time{
+    width: 20%;
+}
+
+/*css for Leads CF*/
+.search_buttom{
+    text-align: center;
+    padding-top: 20px;
+}
+
+/*//don't scroll table'*/
+.search-table-outter {
+    overflow-x:scroll;
+}
+.search-table{
+    table-layout: fixed; 
+}
+.search-table, td, th{
+    border-collapse:collapse; 
+}
+
+
+.No_table{
+    width:3%
+}
+
+.require_input{
+    color: red;
+}
+
+/*font size selectize*/
+.font_selectize{
+    font-size: 13px !important;
+}
+.box2 {
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  margin: 1em;
+}
+
+/*add style table header*/
+.table_header{
+    background-color: #008545;
+}
+.table_header tr th{
+    color: #ffffff;
+}

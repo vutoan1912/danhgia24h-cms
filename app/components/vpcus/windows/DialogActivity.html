@@ -1,0 +1,15 @@
+<div class="uk-grid" style="padding-left: 15%;" ng-if="ActivityService.status_response">
+    <div    >
+        <p ng-if="ActivityService.opp_response">Leads đã convert sang OPP <a href="{{DOMAIN_VTIGER_2}}/index.php?module=Potentials&view=Detail&record={{opp_id}}" target="_blank">[OPP Detail]</a></p>
+        <p>Activity đã tạo thành công <a href="{{DOMAIN_VTIGER_2}}/index.php?module=Calendar&view=Detail&record={{activity_id}}" target="_blank">[Activity Detail]</a></p>
+        <button style="margin-left: 30%;top: 20px;" class="md-btn md-btn-wave" ng-click="[DialogActivity.close(), disable_layout(false)]">Close</button>
+    </div>
+</div>
+<div class="uk-grid" style="padding-left: 25%;" ng-if="!ActivityService.status_response">
+    <div>
+        <p>Tạo Activity không thành công ! </p>
+        <p>ERROR: {{ActivityService.msg}}</p>
+        <button style="margin-left: 30%;margin-top: 35px" class="md-btn md-btn-wave" ng-click="[DialogActivity.close(), disable_layout(false)]">Close</button>
+    </div>
+
+</div>

@@ -1,0 +1,33 @@
+{
+    "toolaf": {
+        "messages": {
+            "error": {
+                "authentication": "<strong>Failed to sign in!</strong> Please check your credentials and try again."
+            }
+        },
+        "common": {
+            "active": "Active",
+            "archived": "Archived",
+            "restore": "Restore",
+            "archive": "Archive",
+            "confirmValidation": "Confirm Validation",
+            "apply": "Apply",
+            "cancel": "Cancel"
+        },
+        "fields": {
+            "search_text":"Search",
+            "table_no": "NO",
+            "nameCustomer": "Customer name",
+            "CIF": "CIF",
+            "phone": "Phone Number",
+            "addr": "Address",
+            "Last_ac": "Last Activity",
+            "note": "Note/Comment",
+            "action": "Actions",
+            "dao_rm": "DAO RM",
+            "priority_branch": "Priority Branch",
+            "branch": "Branch Code",
+            "region": "Region"
+        }
+    }
+}

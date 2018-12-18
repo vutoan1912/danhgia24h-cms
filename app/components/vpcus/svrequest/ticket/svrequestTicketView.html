@@ -1,0 +1,188 @@
+<style>
+    .center-row {
+        height: 100%;
+        margin-top: 8%;
+        text-align: right;
+    }
+</style>
+
+<div id="page_content" ng-style="svrequestTicketService.style_loading">
+    <div id="page_content_inner">
+
+        <div class="md-card">
+            <div class="md-card-content">
+
+                <h3 class="heading_a" data-translate="service.rq.tickets.fields.title"></h3>
+                <div style="text-align: right;padding-bottom: 15px;" ng-if="!AF">
+                    <span class="sub-heading" ng-if="BM">Branch: <b>{{branch}}</b></span>
+                    <span class="sub-heading" ng-if="!BM">Branch: <b>{{branch}}</b>   DAO: <b>{{dao}}</b></span>
+                </div>
+
+                <div class="uk-grid" data-uk-grid-margin>
+                    <div class="uk-width-large-1-2">
+                        <div class="uk-form-row">
+                            <div class="uk-input-group">
+                                <span class="uk-input-group-addon"><i class="uk-input-group-icon uk-icon-calendar"></i></span>
+                                <label for="uk_dp_start" data-translate="service.rq.tickets.fields.startDate"></label>
+                                <input class="md-input" type="text" id="uk_dp_start" data-uk-datepicker="{format:'DD-MM-YYYY'}"
+                                       md-input ng-model="svrequestTicketService.startDate"
+                                       ng-model-options='{ debounce: 1000 }'
+                                       ng-change="checkDateRange()">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-large-1-2">
+                        <div class="uk-form-row">
+                            <div class="uk-input-group">
+                                <span class="uk-input-group-addon"><i class="uk-input-group-icon uk-icon-calendar"></i></span>
+                                <label for="uk_dp_end" data-translate="service.rq.tickets.fields.endDate"></label>
+                                <input class="md-input" type="text" id="uk_dp_end" data-uk-datepicker="{format:'DD-MM-YYYY'}"
+                                       md-input ng-model="svrequestTicketService.endDate"
+                                       ng-model-options='{ debounce: 1000 }'
+                                       ng-change="checkDateRange()">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-large-1-2" ng-if="AF">
+                        <div class="uk-form-row">
+                            <selectize id="s_branch"
+                                       config="selectize_branch"
+                                       options="selectize_branch.options"
+                                       position="bottom"
+                                       ng-model="selectize_branch.model"
+                                       api-url="selectize_branch.apiUrl"
+                                       ng-if="show_branch"
+                                       ng-change="setBranch()">
+                            </selectize>
+                            <style>
+                                .loading .selectize-dropdown-content:after {
+                                    content: 'loading...';
+                                    height: 30px;
+                                    display: block;
+                                    text-align: center;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                    <div class="uk-width-large-1-2" ng-if="AF">
+                        <div class="uk-form-row">
+                            <div class="uk-width-large-1-1" style="text-align: center;">
+                                <button class="md-btn md-btn-primary" type="button" style="width: 120px;" ng-click="svrequestTicketService.doSearch(GR_AF)" ng-disabled="disableSearch" data-uk-button>
+                                    <span data-translate="service.rq.tickets.fields.search"></span>
+                                </button>
+
+                                <!--<button class="md-btn" type="button" style="width: 120px;" ng-click="doExport('#tableData')" data-uk-button>
+                                    <span data-translate="service.rq.tickets.fields.export"></span>
+                                </button>-->
+
+                                <download-as-excel xlname="{{excel.fileName+'-'+svrequestTicketService.startDate+'-'+svrequestTicketService.endDate+'.xls'}}"
+                                                   sheetname="{{excel.sheetName+'-'+svrequestTicketService.startDate+'-'+svrequestTicketService.endDate}}"
+                                                   text-button="excel.textButton" template="{{excel.templateUrl}}"
+                                                   object="svrequestTicketService.exportData"></download-as-excel>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-large-1-1" ng-if="!AF">
+                        <div class="uk-form-row">
+                            <div class="uk-width-large-1-1" style="text-align: center;">
+                                <button class="md-btn md-btn-primary" type="button" style="width: 120px;" ng-click="svrequestTicketService.doSearch(GR_AF)" ng-disabled="disableSearch" data-uk-button>
+                                    <span data-translate="service.rq.tickets.fields.search"></span>
+                                </button>
+                                <download-as-excel xlname="{{excel.fileName+'-'+svrequestTicketService.startDate+'-'+svrequestTicketService.endDate+'.xls'}}"
+                                                   sheetname="{{excel.sheetName+'-'+svrequestTicketService.startDate+'-'+svrequestTicketService.endDate}}"
+                                                   text-button="excel.textButton" template="{{excel.templateUrl}}"
+                                                   object="svrequestTicketService.exportData"></download-as-excel>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="md-card">
+            <div class="md-card-content">
+                <div class="uk-overflow-container" style="min-height: 520px;">
+
+                    <div class="row" style="text-align: right;">
+                        <div class="uk-button-dropdown uk-margin-right" data-uk-dropdown="{mode:'click'}">
+                            <button class="md-btn md-btn-small">
+                                <span class="uk-text-bold" data-translate="service.rq.tickets.common.columns" style="padding-right: 5px;"></span>
+                                <i class="uk-icon-caret-down"></i>
+                            </button>
+                            <div class="uk-dropdown" style="min-width: 247px;top: 31px;left: -149px;">
+                                <label class="container-checkbox">
+                                    <span data-translate="service.rq.tickets.common.all" style="padding-right: 3px;"></span>
+                                    <input ng-model="checkColumnAll" type="checkbox" checked="checked" ng-change="handleAllColumn()" icheck>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <ul class="uk-nav uk-nav-dropdown" ng-repeat="c in myColumns">
+                                    <li class="checkbox-padding-left" style="margin-right: 15px;margin-top: 4px;">
+                                        <label class="container-checkbox">
+                                            <span data-translate="service.rq.tickets.table.{{c}}" style="padding-right: 3px;"></span>
+                                            <input ng-model=myColumnsShow[$index] type="checkbox" checked="checked" ng-change="handleColumn()" icheck>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="uk-table uk-table-nowrap" id="tableData">
+                        <thead>
+                            <tr>
+                                <th class="uk-width-1-10 uk-text-center" data-translate="service.rq.tickets.table.index" ng-show="myColumnsShow[0]"></th>
+                                <th class="uk-width-1-10" data-translate="service.rq.tickets.table.ticketNo" ng-show="myColumnsShow[1]"></th>
+                                <th class="uk-width-1-10" data-translate="service.rq.tickets.table.title" ng-show="myColumnsShow[2]"></th>
+                                <th class="uk-width-1-10 uk-text-center" data-translate="service.rq.tickets.table.status" ng-show="myColumnsShow[3]"></th>
+                                <th class="uk-width-1-10" data-translate="service.rq.tickets.table.serviceSubCategory" ng-show="myColumnsShow[4]"></th>
+                                <th class="uk-width-1-10" data-translate="service.rq.tickets.table.fullName" ng-show="myColumnsShow[5]"></th>
+                                <th class="uk-width-1-10 uk-text-center" data-translate="service.rq.tickets.table.dao" ng-show="myColumnsShow[6]"></th>
+                                <th class="uk-width-1-10 uk-text-center" data-translate="service.rq.tickets.table.cif" ng-show="myColumnsShow[7]"></th>
+                                <th class="uk-width-1-10 uk-text-center" data-translate="service.rq.tickets.table.idNumber" ng-show="myColumnsShow[8]"></th>
+                                <th class="uk-width-1-10 uk-text-center" data-translate="service.rq.tickets.table.expectedCloseDate" ng-show="myColumnsShow[9]"></th>
+                                <th class="uk-width-1-10 uk-text-center" data-translate="service.rq.tickets.table.createdTime" ng-show="myColumnsShow[10]"></th>
+                                <th class="uk-width-1-10 uk-text-center" data-translate="service.rq.tickets.table.modifiedTime" ng-show="myColumnsShow[11]"></th>
+                                <th class="uk-width-1-10" data-translate="service.rq.tickets.table.description" ng-show="myColumnsShow[12]"></th>
+                                <th class="uk-width-1-10" data-translate="service.rq.tickets.table.creator" ng-show="myColumnsShow[13]"></th>
+                                <th class="uk-width-1-10" data-translate="service.rq.tickets.table.assignedTo" ng-show="myColumnsShow[14]"></th>
+                                <th class="uk-width-1-10" data-translate="service.rq.tickets.table.branch" ng-show="myColumnsShow[15]"></th>
+                                <th class="uk-width-1-10" data-translate="service.rq.tickets.table.branchName" ng-show="myColumnsShow[16]"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr dir-paginate="item in svrequestTicketService.table | itemsPerPage: svrequestTicketService.limit">
+                                <td ng-show="myColumnsShow[0]" class="uk-text-center">{{(svrequestTicketService.page - 1) * svrequestTicketService.limit + $index + 1}}</td>
+                                <td ng-show="myColumnsShow[1]"><a target="_blank" href="{{DOMAIN_VTIGER_2+'/index.php?module=HelpDesk&view=Detail&record='+item.ticketid}}">{{item.ticket_no}}</a></td>
+                                <td ng-show="myColumnsShow[2]" data-uk-tooltip="{cls:'long-text'}" title="{{item.title}}" ng-bind-html="cutString(item.title)"></td>
+                                <td ng-show="myColumnsShow[3]" class="uk-text-center">
+                                    <span class="uk-badge" ng-if="showStatus(item.sr_status) == 'N/A'" style="width: 110px;">{{showStatus(item.sr_status)}}</span>
+                                    <span class="uk-badge uk-badge-success" ng-if="showStatus(item.sr_status) == 'closed'" style="width: 110px;">{{item.sr_status}}</span>
+                                    <span class="uk-badge uk-badge-danger" ng-if="showStatus(item.sr_status) == 'cancelled'" style="width: 110px;">{{item.sr_status}}</span>
+                                    <span class="uk-badge uk-badge-primary" ng-if="showStatus(item.sr_status) == 'open'" style="width: 110px;">{{item.sr_status}}</span>
+                                    <span class="uk-badge uk-badge-warning" ng-if="showStatus(item.sr_status) == 'wait for support units'" style="width: 110px;">{{item.sr_status}}</span>
+                                </td>
+                                <td ng-show="myColumnsShow[4]" data-uk-tooltip="{cls:'long-text'}" title="{{item.sub_cat}}" ng-bind-html="cutString(item.sub_cat)"></td>
+                                <td ng-show="myColumnsShow[5]" ng-bind-html="item.full_name"></td>
+                                <td ng-show="myColumnsShow[6]" class="uk-text-center" ng-bind-html="item.dao"></td>
+                                <td ng-show="myColumnsShow[7]" class="uk-text-center" ng-bind-html="item.cif"></td>
+                                <td ng-show="myColumnsShow[8]" class="uk-text-center" ng-bind-html="item.id_number"></td>
+                                <td ng-show="myColumnsShow[9]" class="uk-text-center">{{item.expected_close_date}}</td>
+                                <td ng-show="myColumnsShow[10]" class="uk-text-center">{{item.createdtime}}</td>
+                                <td ng-show="myColumnsShow[11]" class="uk-text-center">{{item.modifiedtime}}</td>
+                                <td ng-show="myColumnsShow[12]" data-uk-tooltip="{cls:'long-text'}" title="{{item.description}}" ng-bind-html="cutString(item.description)"></td>
+                                <td ng-show="myColumnsShow[13]">{{item.creator}}</td>
+                                <td ng-show="myColumnsShow[14]" ng-bind-html="item.user_name"></td>
+                                <td ng-show="myColumnsShow[15]" class="uk-text-center" data-uk-tooltip="{cls:'long-text'}" title="{{item.cf_branch_name}}" ng-bind-html="cutString(item.branch)"></td>
+                                <td ng-show="myColumnsShow[16]" data-uk-tooltip="{cls:'long-text'}" title="{{item.cf_branch_name}}" ng-bind-html="cutString(item.branch_name)"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <dir-pagination-controls boundary-links="false" pagination-current="svrequestTicketService.page" template-url="app/templates/dirPagination.tpl.html"></dir-pagination-controls>
+            </div>
+        </div>
+
+    </div>
+</div>

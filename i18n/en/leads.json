@@ -1,0 +1,71 @@
+{
+    "leads": {
+        "messages": {
+            "error": {
+                "authentication": "<strong>Failed to sign in!</strong> Please check your credentials and try again."
+            }
+        },
+        "common": {
+            "active": "Active",
+            "archived": "Archived",
+            "restore": "Restore",
+            "archive": "Archive",
+            "confirmValidation": "Confirm Validation",
+            "apply": "Apply",
+            "cancel": "Cancel"
+        },
+        "fields": {
+            "phone":"Phone number",
+            "cmnd":"CMND",
+            "nameCustomer": "Customer name",
+            "fromDate": "From date",
+            "toDate": "To date",
+            "CIF": "CIF",
+            "chooseStatus": "Choose status",
+            "chooseLeadSource": "Choose lead source",
+            "searchText": "Search",
+            "searchClear": "Clear",
+            "addLead": "Add Lead",
+            "detail_title": "Customer detail infomation",
+            "detail_fullName": "Full name",
+            "detail_phone": "Primary Phone",
+            "detail_mobile": "Mobile Phone",
+            "detail_addr": "Address",
+            "detail_email": "Email",
+            "detail_birhday": "Birthday",
+            "detail_cmnd": "CMND",
+            "detail_gender": "Gender",
+            "detail_job": "Job",
+            "detail_productSale": "Product name",
+            "detail_editLead": "Edit infomation",
+            "detail_save": "Save",
+            "detail_cancel": "Cancel",
+            "detail_des": "Description",
+            "detail_redirect": "View Full detail",
+            "total_salary": "Total salary"
+        },
+        "activity": {
+            "type": "Activity Type",
+            "subject": "Subject",
+            "status": "Status",
+            "response": "Response",
+            "des": "Description",
+            "startDate": "Start date",
+            "endDate": "End date",
+            "startTime": "Start time",
+            "endTime": "End time",
+            "assigned": "Assigned To",
+            "Visibility": "Visibility"
+        },
+        "table": {
+            "userName": "User name",
+            "cmnd": "CMND",
+            "phone": "Phone Number",
+            "clc": "Click to call",
+            "lead": "Lead Source",
+            "leadStatus": "Lead Status",
+            "dateSub": "Date Customer submit",
+            "action": "Action"
+        }
+    }
+}

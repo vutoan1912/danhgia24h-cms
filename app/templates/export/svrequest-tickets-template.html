@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Service request - Tickets</title>
+</head>
+<body>
+<table>
+    <thead>
+        <tr>
+            <th>{{object.cols[0]}}</th>
+            <th>{{object.cols[1]}}</th>
+            <th>{{object.cols[2]}}</th>
+            <th>{{object.cols[3]}}</th>
+            <th>{{object.cols[4]}}</th>
+            <th>{{object.cols[5]}}</th>
+            <th>{{object.cols[6]}}</th>
+            <th>{{object.cols[7]}}</th>
+            <th>{{object.cols[8]}}</th>
+            <th>{{object.cols[9]}}</th>
+            <th>{{object.cols[10]}}</th>
+            <th>{{object.cols[11]}}</th>
+            <th>{{object.cols[12]}}</th>
+            <th>{{object.cols[13]}}</th>
+            <th>{{object.cols[14]}}</th>
+            <th>{{object.cols[15]}}</th>
+            <th>{{object.cols[16]}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in object.rows">
+            <td class="uk-text-center export-border" ng-class="{'export-header': $index == 0}">{{$index+1}}</td>
+            <td class="export-border" ng-class="{'export-header': $index == 0}">{{item.ticket_no}}</td>
+            <td class="export-border" ng-class="{'export-header': $index == 0}">{{item.title}}</td>
+            <td class="uk-text-center export-border" ng-class="{'export-header': $index == 0}">{{item.sr_status}}</td>
+            <td class="export-border" ng-class="{'export-header': $index == 0}">{{item.sub_cat}}</td>
+            <td class="export-border" ng-class="{'export-header': $index == 0}">{{item.full_name}}</td>
+            <td class="uk-text-center export-border" ng-class="{'export-header': $index == 0}">{{item.dao}}</td>
+            <td class="uk-text-center export-border" ng-class="{'export-header': $index == 0}">{{item.cif}}</td>
+            <td class="uk-text-center export-border" ng-class="{'export-header': $index == 0}">{{item.id_number}}</td>
+            <td class="uk-text-center export-border" ng-class="{'export-header': $index == 0}">{{item.expected_close_date}}</td>
+            <td class="uk-text-center export-border" ng-class="{'export-header': $index == 0}">{{item.createdtime}}</td>
+            <td class="uk-text-center export-border" ng-class="{'export-header': $index == 0}">{{item.modifiedtime}}</td>
+            <td class="export-border" ng-class="{'export-header': $index == 0}">{{item.description}}</td>
+            <td class="export-border" ng-class="{'export-header': $index == 0}">{{item.creator}}</td>
+            <td class="export-border" ng-class="{'export-header': $index == 0}">{{item.user_name}}</td>
+            <td class="uk-text-center export-border" ng-class="{'export-header': $index == 0}">{{item.branch}}</td>
+            <td class="export-border" ng-class="{'export-header': $index == 0}">{{item.branch_name}}</td>
+        </tr>
+    </tbody>
+</table>
+<style>
+    .export-border {
+        border: 1px;
+    }
+    .export-header {
+        font-weight: bold;
+    }
+</style>
+</body>
+</html>

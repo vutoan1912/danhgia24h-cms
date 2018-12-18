@@ -1,0 +1,51 @@
+<div id="page_content" ng-style="SearchService.style_loading" >
+    <div id="page_content_inner">
+        <div class="md-card" >
+            <div class="md-card-content">
+                <h3  class="heading_a" >Hoạt động cuối cùng đến ngày {{last_activity}}</h3>
+            </div>
+        </div>
+        <div class="md-card">
+            <div class="md-card-content">
+                <div class="uk-overflow-container">
+                    <table class="uk-table uk-table-nowrap">
+                        <thead class="table_header">
+                            <tr>
+                                <th class=" No_table" data-translate="toolaf.fields.table_no"></th>
+                                <th class="" data-translate="toolaf.fields.nameCustomer"></th>
+                                <th class="" data-translate="toolaf.fields.CIF"></th>
+                                <th class="" data-translate="toolaf.fields.phone"></th>
+                                <th class="" data-translate="toolaf.fields.addr"></th>
+                                <th class="" data-translate="toolaf.fields.Last_ac"></th>
+                                <th class="" data-translate="toolaf.fields.note"></th>
+                                <th class="" ng-if="dao_display" data-translate="toolaf.fields.dao_rm"></th>
+                                <th class="" ng-if="branch_display" data-translate="toolaf.fields.branch"></th>
+                                <th class="" ng-if="branch_display" data-translate="toolaf.fields.region"></th>
+                                <th class="" ng-if="action_display"  >Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr dir-paginate="item1 in SearchService.table | itemsPerPage: pageSize track by $index" >
+                                <td>{{(paginationCurrent - 1) * pageSize + $index + 1}}</td> 
+                                <td >{{ item1.ten_kh}}</td>
+                                <td>{{ item1.cif}}</td>
+                                <td>{{ item1.dien_thoai}}</td>
+                                <td>{{ item1.addr}}</td>
+                                <td>{{ item1.hoat_dong_ban}}</td>
+                                <td>{{ item1.note}}</td>
+                                <td ng-if="dao_display" >{{ item1.rm_dao}}</td>
+                                <td ng-if="branch_display" >{{ item1.ma_cn}}</td>
+                                <td ng-if="branch_display" >{{ item1.vung}}</td>
+                                <td ng-if="action_display" >
+                                    <a target="_blank" href="{{DOMAIN_VTIGER_2}}/misv.php?com=rmAct&func=Activity.Edit&cus_id={{item1.cus_id}}" data-uk-tooltip title="Add new activity">Add Activity</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <dir-pagination-controls boundary-links="false" pagination-current="paginationCurrent" template-url="app/templates/dirPagination.tpl.html"></dir-pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

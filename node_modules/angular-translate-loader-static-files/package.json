@@ -1,0 +1,52 @@
+{
+  "_from": "angular-translate-loader-static-files",
+  "_id": "angular-translate-loader-static-files@2.18.1",
+  "_inBundle": false,
+  "_integrity": "sha512-5MuyzAROfc493kjLjKlLGLBzXiRmZIFbcWZGutDRxW5SRXSpwrH0u0hh0ENNnUyUQbe2vUspHNPIuZqlq8qIhw==",
+  "_location": "/angular-translate-loader-static-files",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "angular-translate-loader-static-files",
+    "name": "angular-translate-loader-static-files",
+    "escapedName": "angular-translate-loader-static-files",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular-translate-loader-static-files/-/angular-translate-loader-static-files-2.18.1.tgz",
+  "_shasum": "ad0c3c883b18b089bdb8db02bbd366d903f857cc",
+  "_spec": "angular-translate-loader-static-files",
+  "_where": "D:\\toanvd\\crm\\crm-code\\vpcus\\public",
+  "author": {
+    "name": "Pascal Precht"
+  },
+  "bugs": {
+    "url": "https://github.com/angular-translate/angular-translate/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "angular-translate": "~2.18.1"
+  },
+  "deprecated": false,
+  "description": "Creates a loading function for a typical static file url pattern: \"lang-en_US.json\", \"lang-de_DE.json\", etc. Using this builder, the response of these urls must be an object of key-value pairs.",
+  "homepage": "https://angular-translate.github.io",
+  "keywords": [
+    "angular",
+    "translate",
+    "loader"
+  ],
+  "license": "MIT",
+  "main": "angular-translate-loader-static-files.js",
+  "name": "angular-translate-loader-static-files",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angular-translate/bower-angular-translate-loader-static-files.git"
+  },
+  "version": "2.18.1"
+}

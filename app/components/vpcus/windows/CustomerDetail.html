@@ -1,0 +1,138 @@
+<style>
+    .uk-grid>*>:last-child {
+        margin-bottom: 0; 
+    }
+</style>
+<div style="position: absolute; padding-top: 20%; padding-left: 45%;" ng-if="LeadDetailService.style_loading_stt">
+    <md-preloader success></md-preloader>
+</div>
+
+<div ng-style="LeadDetailService.style_loading">
+    <div style="margin-left: -20px; background-color: #ddf5c4; position: absolute; width: 100%; margin-top: 0px; top: 0px;">
+        <div style="margin-left: 25px; margin-top: 10px;">
+            <p style="font-weight: 400; font-size: 16px">Lead: <span style="font-weight: 500; font-size: 16px">{{LeadDetailService.leadDetail.lastname}}</span></p>
+            <p style="font-size: 12px">Lead Source: <span style="font-weight: bold">{{LeadDetailService.leadDetail.leadsource}} -</span>  Created Date: <span style="font-weight: bold">{{LeadDetailService.leadDetail.createdtime}} -</span> Lead Status: <span style="font-weight: bold">{{LeadDetailService.leadDetail.leadstatus}}</span></p>
+        </div>
+    </div>
+    <hr>
+    <div class="uk-grid" style="margin-top: 50px;">
+        <div class="uk-width-1-2 half_row">
+            <ul class="md-list">
+                <li>
+                    <div class="md-list-content">
+                        <span class="md-list-heading" data-translate="leads.fields.detail_fullName">Họ và tên</span>
+                        <span class="uk-text-small uk-text-muted">{{LeadDetailService.leadDetail.lastname}}</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="md-list-content">
+                        <span class="md-list-heading" data-translate="leads.fields.detail_addr">Địa chỉ</span>
+                        <span class="uk-text-small uk-text-muted">{{LeadDetailService.leadDetail.address}}</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="md-list-content">
+                        <span class="md-list-heading" data-translate="leads.fields.detail_birhday" >Năm sinh</span>
+                        <span class="uk-text-small uk-text-muted">{{LeadDetailService.leadDetail.birthday}}</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="md-list-content">
+                        <span class="md-list-heading" data-translate="leads.fields.detail_gender">Giới tính</span>
+                        <span class="uk-text-small uk-text-muted">{{LeadDetailService.leadDetail.gender}}</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="md-list-content">
+                        <span class="md-list-heading" data-translate="leads.fields.detail_job" >Nghề nghiệp</span>
+                        <span class="uk-text-small uk-text-muted">{{LeadDetailService.leadDetail.industry}}</span>
+                    </div>
+                </li>
+                <p></p>
+            </ul>
+        </div>
+        <div class="uk-width-2-5 half_row">
+            <ul class="md-list">
+                <li>
+                    <div class="md-list-content">
+                        <span class="md-list-heading" data-translate="leads.fields.detail_phone" >Số điện thoại</span>
+                        <span class="uk-text-small uk-text-muted">{{LeadDetailService.leadDetail.phone}} (<a ng-click="doClickToCall('CallHistory', LeadDetailService.leadDetail.leadid , 'Leads' ,LeadDetailService.leadDetail.phone)" style="color: red; font-size: 12px;" data-translate="leads.table.clc"></a>)</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="md-list-content">
+                        <span class="md-list-heading" data-translate="leads.fields.detail_mobile" >Số điện thoại</span>
+                        <span class="uk-text-small uk-text-muted">{{LeadDetailService.leadDetail.mobile}} <span ng-if="LeadDetailService.leadDetail.mobile" >(<a  ng-click="doClickToCall('CallHistory', LeadDetailService.leadDetail.leadid , 'Leads' ,LeadDetailService.leadDetail.mobile)" style="color: red; font-size: 12px;" data-translate="leads.table.clc"></a>)</span></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="md-list-content">
+                        <span class="md-list-heading" data-translate="leads.fields.detail_email">Email</span>
+                        <span class="uk-text-small uk-text-muted">{{LeadDetailService.leadDetail.email}}</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="md-list-content">
+                        <span class="md-list-heading" data-translate="leads.fields.detail_cmnd">CMND</span>
+                        <span class="uk-text-small uk-text-muted">{{LeadDetailService.leadDetail.cmnd}}</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="md-list-content" ng-if="LeadDetailService.leadDetail.cif">
+                        <span class="md-list-heading" data-translate="leads.fields.CIF">CIF</span>
+                        <span class="uk-text-small uk-text-muted">{{LeadDetailService.leadDetail.cif}}</span>
+                    </div>
+                    <div class="md-list-content" ng-if="!LeadDetailService.leadDetail.cif">
+                        <span class="md-list-heading" data-translate="leads.fields.total_salary"></span>
+                        <span class="uk-text-small uk-text-muted">{{LeadDetailService.leadDetail.total_salary}}</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="md-list-content">
+                        <span class="md-list-heading" data-translate="leads.fields.detail_productSale" >Sản phẩm bán dự kiến</span>
+                        <span class="uk-text-small uk-text-muted">{{LeadDetailService.leadDetail.product}}</span>
+                    </div>
+                </li>
+                <p></p>
+            </ul>
+        </div>
+    </div>
+
+    <div class="uk-grid">
+        <div style="margin-left: 22%;">
+            <button class="md-btn md-btn-success md-btn-wave-light" ><a style="color: white;text-decoration: none;" href="{{DOMAIN_VTIGER_2}}/index.php?module=Leads&view=Detail&record={{LeadDetailService.leadDetail.leadid}}" target="_blank" data-translate="leads.fields.detail_redirect"></a></button>
+            <button class="md-btn md-btn-primary" ng-click="[EditLeadDetail(), disable_layout(true)]" data-translate="leads.fields.detail_editLead" ></button>
+            <button class="md-btn md-btn-wave" ng-click="[detail.close(), cancel(), disable_layout(false)]" data-translate="leads.fields.detail_cancel" >Cancel</button>
+        </div>
+    </div>
+    <div ng-if="LeadDetailService.leadDetail.cif">
+        <h4 class="heading_a uk-margin-bottom">Sản phẩm khách hàng hiện có</h4>
+        <div class="md-card" >
+            <div class="md-card-content">
+                <div class="uk-overflow-container">
+                    <table class="uk-table uk-table-nowrap" id="123">
+                        <thead>
+                            <tr>
+                                <th class="uk-width-2-10">#</th>
+                                <th class="uk-width-2-10">Tên sản phẩm</th>
+                                <th class="uk-width-2-10">Loại sản phẩm</th>
+                                <th class="uk-width-1-10 uk-text-center">Amount</th>
+                                <th class="uk-width-1-10 uk-text-center">Open date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="product in LeadDetailService.leadDetail.product_list" >
+                                <td>{{product.prod_no}}</td>
+                                <td>{{product.prod_name}}</td>
+                                <td>{{product.cf_1456}}</td>
+                                <td class="uk-text-center">{{ product.amount}}</td>
+                                <td class="uk-text-center">{{product.cf_1474}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

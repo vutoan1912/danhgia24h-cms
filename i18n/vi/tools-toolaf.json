@@ -1,0 +1,33 @@
+{
+    "toolaf": {
+        "messages": {
+            "error": {
+                "authentication": "<strong>Failed to sign in!</strong> Please check your credentials and try again."
+            }
+        },
+        "common": {
+            "active": "Active",
+            "archived": "Archived",
+            "restore": "Restore",
+            "archive": "Archive",
+            "confirmValidation": "Confirm Validation",
+            "apply": "Apply",
+            "cancel": "Cancel"
+        },
+        "fields": {
+            "search_text": "Tìm kiếm",
+            "table_no": "STT",
+            "nameCustomer": "Tên KH",
+            "CIF": "CIF",
+            "phone": "SĐT",
+            "addr": "Địa chỉ KH",
+            "Last_ac": "Hoạt động Cuối",
+            "note": "Lưu ý/Nhận xét",
+            "action": "Actions",
+            "dao_rm": "DAO RM",
+            "priority_branch": "CN Ưu tiên",
+            "branch": "Mã chi nhánh",
+            "region": "Vùng"
+        }
+    }
+}

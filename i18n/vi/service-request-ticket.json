@@ -1,0 +1,50 @@
+{
+  "service.rq.tickets": {
+    "messages":{
+      "error":{
+        "authentication":"<strong>Đăng nhập không thành công.</strong> Vui lòng kiểm tra thông tin và thử lại."
+      }
+    },
+    "common":{
+      "active":"Active",
+      "archived":"Archived",
+      "restore":"Restore",
+      "archive":"Archive",
+      "confirmValidation":"Chấp nhận xác thực",
+      "apply":"Apply",
+      "cancel":"Cancel",
+      "columns":"Danh sách cột",
+      "all":"Tất cả"
+    },
+    "fields":{
+      "title":"Danh sách Tickets",
+      "startDate":"Ticket tạo từ ngày",
+      "endDate":"Đến ngày",
+      "labelStartDate":"Ticket tạo từ ngày",
+      "labelEndDate":"Đến ngày",
+      "labelPrioritizeBranch":"CN ưu tiên",
+      "search":"Tìm kiếm",
+      "export":"Xuất file",
+      "placehBranch": "Chọn chi nhánh ưu tiên"
+    },
+    "table":{
+      "index":"STT",
+      "ticketNo":"Số Ticket",
+      "title":"Tiêu đề",
+      "status":"Trạng thái",
+      "serviceSubCategory":"Service Sub-Category",
+      "fullName":"Họ và tên",
+      "dao":"Dao",
+      "cif":"CIF",
+      "idNumber":"ID number",
+      "expectedCloseDate":"Ngày đóng Ticket dự kiến",
+      "createdTime":"Thời gian tạo",
+      "modifiedTime":"Thời gian điều chỉnh",
+      "assignedTo":"Người thực hiện",
+      "description":"Mô tả",
+      "creator":"Người tạo",
+      "branch":"Branch",
+      "branchName":"Branch name"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+    "leads": {
+        "messages": {
+            "error": {
+                "authentication": "<strong>Failed to sign in!</strong> Please check your credentials and try again."
+            }
+        },
+        "common": {
+            "active": "Active",
+            "archived": "Archived",
+            "restore": "Restore",
+            "archive": "Archive",
+            "confirmValidation": "Confirm Validation",
+            "apply": "Apply",
+            "cancel": "Cancel"
+        },
+        "fields": {
+            "nameCustomer": "Customer name",
+            "fromDate": "From date",
+            "toDate": "To date",
+            "CIF": "CIF",
+            "chooseStatus": "Choose lead status",
+            "chooseLeadSource": "Choose lead source",
+            "searchText": "Search",
+            "detail_title":"Customer detail infomation",
+            "detail_fullName":"Full name",
+            "detail_phone":"Phone",
+            "detail_addr":"Address",
+            "detail_email":"Email",
+            "detail_birhday":"Birthday",
+            "detail_cmnd":"CMND",
+            "detail_gender":"Gender",
+            "detail_job":"Job",
+            "detail_productSale":"Product sale",
+            "detail_editLead":"Edit infomation",
+            "detail_save":"Save",
+            "detail_cancel":"Cancel",
+            "table_no":"NO",
+            "table_fullName":"Full Name",
+            "table_phone":"Phone Number",
+            "table_cmnd":"CMND",
+            "table_cif":"CIF",
+            "table_LeadSource":"Lead Source",
+            "table_LeadStatus":"Lead Status",
+            "table_startDate":"Start Date",
+            "table_endDate":"End Date",
+            "table_DAO":"DAO RM",
+            "table_rmName":"RM name",
+            "table_cnCode":"CN Code",
+            "table_cnName":"CN Name",
+            "table_district":"Branch Code",
+            "table_region":"Region"
+            
+            
+        }
+    }
+}
