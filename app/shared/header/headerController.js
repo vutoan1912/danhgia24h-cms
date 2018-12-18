@@ -14,17 +14,12 @@ angular
                       //$rootScope,$translate, JhiLanguageService, tmhDynamicLocale) {
 
                 $scope.user = $localStorage.get('user');
-                $scope.AF   = angular.isDefined($scope.user) && $scope.user != null ? $scope.user.af : false;
-
-                $scope.showNoti = false;
-
-                $scope.user = $localStorage.get('user');
                 $scope.uid = angular.isDefined($scope.user) ? $scope.user.userid : 0;
-                HttpServices.getData(API_URL + 'com=service&elem=vtg_user_info&func=getUserName', null)
+                /*HttpServices.getData(API_URL + 'com=service&elem=vtg_user_info&func=getUserName', null)
                         .then(function (response) {
                             console.log(response);
                             $scope.username = response.data.u_name;
-                        });
+                        });*/
 
                 $scope.logout = function () {
                     $localStorage.remove('user');
@@ -36,7 +31,7 @@ angular
                     avatar: "assets/img/avatars/avatar_11_tn.png"
                 };
 
-                /*$scope.user_data = {
+                $scope.user_data = {
                     name: "Lue Feest",
                     avatar: "assets/img/avatars/avatar_11_tn.png",
                     alerts: [
@@ -99,7 +94,7 @@ angular
                 };
 
                 $scope.alerts_length = $scope.user_data.alerts.length;
-                $scope.messages_length = $scope.user_data.messages.length;*/
+                $scope.messages_length = $scope.user_data.messages.length;
 
                 $('#menu_top').children('[data-uk-dropdown]').on('show.uk.dropdown', function () {
                     $timeout(function () {

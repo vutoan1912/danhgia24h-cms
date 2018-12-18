@@ -1926,30 +1926,58 @@ altairApp
 
                     //danhgia24h
                     .state("restricted.danhgia24h", {
-                        url: "/leads",
+                        url: "/danhgia24h",
                         template: '<div ui-view autoscroll="false"/>',
                         abstract: true
                     })
-                    .state("restricted.danhgia24h.crud", {
-                        url: "/crud",
-                        templateUrl: 'app/components/vpcus/leads/leadsView.html',
-                        controller: 'leadsCtrl',
+                    .state("restricted.danhgia24h.article", {
+                        url: "/article",
+                        template: '<div ui-view autoscroll="false"/>',
+                        abstract: true
+                    })
+                    .state("restricted.danhgia24h.article.list", {
+                        url: "/list",
+                        templateUrl: 'app/components/danhgia24h/article/article-list.html',
+                        controller: 'ArticleListCtrl',
                         resolve: {
                             deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                                 return $ocLazyLoad.load([
                                     'lazy_KendoUI',
-                                    'app/components/vpcus/leads/leadsService.js',
+                                    'app/components/danhgia24h/article/article.service.js',
                                     'lazy_pagination',
-                                    'app/components/vpcus/leads/leadsController.js'
+                                    'app/components/danhgia24h/article/article-list.controller.js'
                                 ]);
                             }],
                             translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                                $translatePartialLoader.addPart('leads');
+                                $translatePartialLoader.addPart('article');
                                 return $translate.refresh();
                             }]
                         },
                         data: {
-                            pageTitle: 'Leads'
+                            pageTitle: 'Article'
+                        }
+                    })
+                    .state("restricted.danhgia24h.article.crud", {
+                        url: "/crud",
+                        templateUrl: 'app/components/danhgia24h/article/article-crud.html',
+                        controller: 'ArticleCrudCtrl',
+                        resolve: {
+                            deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                                return $ocLazyLoad.load([
+                                    'lazy_ckeditor',
+                                    'lazy_KendoUI',
+                                    'app/components/danhgia24h/article/article.service.js',
+                                    'lazy_pagination',
+                                    'app/components/danhgia24h/article/article-crud.controller.js'
+                                ]);
+                            }],
+                            translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                                $translatePartialLoader.addPart('article');
+                                return $translate.refresh();
+                            }]
+                        },
+                        data: {
+                            pageTitle: 'Article'
                         }
                     })
         }

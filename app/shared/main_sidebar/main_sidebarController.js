@@ -90,10 +90,26 @@ angular
                     },
                     {
                         id: 2,
+                        title: 'Articles',
+                        icon: '&#xE8D2;',
+                        //link: 'restricted.leads.crud'
+                        submenu: [
+                           {
+                               title: 'List',
+                               link: 'restricted.danhgia24h.article.list'
+                           },
+                           {
+                               title: 'Crud',
+                               link: 'restricted.danhgia24h.article.crud'
+                           }
+                        ]
+                    }
+                    /*{
+                        id: 2,
                         title: 'Leads',
                         icon: 'assignment_ind',
                         link: 'restricted.leads.crud'
-                        /*submenu: [
+                        /!*submenu: [
                            {
                                title: 'Lead Source',
                                link: 'restricted.leads.crud'
@@ -102,35 +118,19 @@ angular
                                title: 'List',
                                link: 'restricted.leads.list'
                            }
-                        ]*/
+                        ]*!/
                     },
                     {
                         id: 3,
                         title: 'Leads AF',
                         icon: 'account_circle',
                         link: 'restricted.leadscf.crud'
-                        /*submenu: [
-                           {
-                               title: 'Lead Source',
-                               link: 'restricted.leads.crud'
-                           },
-                           {
-                               title: 'List',
-                               link: 'restricted.leads.list'
-                           }
-                        ]*/
                     },
                     {
                         id: 4,
                         title: 'Opportunities',
                         icon: '&#xE53E;',
                         link: 'restricted.opportunities.info'
-                        /*submenu: [
-                           {
-                               title: 'Information',
-                               link: 'restricted.opportunities.info'
-                           }
-                        ]*/
                     },
                     {
                         id: 5,
@@ -153,7 +153,7 @@ angular
                                 link: 'restricted.tools.toolaf'
                             }
                         ]
-                    }
+                    }*/
                 ];
 
             }

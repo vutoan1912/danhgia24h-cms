@@ -7,6 +7,6 @@
         .constant('DEBUG_INFO_ENABLED', true)
         .constant('BUILD_TIMESTAMP', "")
         .constant('API_URL', "http://localhost:9092/api/")
-        .constant('BYPASS_AUTH', "0")
+        .constant('BYPASS_AUTH', "1")
     ;
 })();
