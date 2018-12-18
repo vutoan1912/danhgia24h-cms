@@ -6,10 +6,8 @@ angular
             '$timeout',
             'HttpServices',
             '$localStorage',
-            'VTIGER_LOGIN',
             'HOME_URL',
-            function ($scope, $rootScope, $timeout, HttpServices, $localStorage, VTIGER_LOGIN, HOME_URL) {
-                $scope.vtiger_login = VTIGER_LOGIN;
+            function ($scope, $rootScope, $timeout, HttpServices, $localStorage, HOME_URL) {
                 $scope.reloadRoute = function () {
                     location.href = HOME_URL;
                 }

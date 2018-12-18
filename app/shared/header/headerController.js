@@ -5,13 +5,12 @@ angular
             '$scope',
             '$window',
             '$state',
-            'DOMAIN_VTIGER_2',
             '$localStorage',
             'HttpServices',
-            'API_URL_2',
+            'API_URL',
             //'$rootScope',
             //'$translate', 'JhiLanguageService', 'tmhDynamicLocale',
-            function ($timeout, $scope, $window, $state, DOMAIN_VTIGER_2, $localStorage, HttpServices,API_URL_2) {
+            function ($timeout, $scope, $window, $state, $localStorage, HttpServices,API_URL) {
                       //$rootScope,$translate, JhiLanguageService, tmhDynamicLocale) {
 
                 $scope.user = $localStorage.get('user');
@@ -21,8 +20,7 @@ angular
 
                 $scope.user = $localStorage.get('user');
                 $scope.uid = angular.isDefined($scope.user) ? $scope.user.userid : 0;
-                $scope.DOMAIN_VTIGER_2 = DOMAIN_VTIGER_2;
-                HttpServices.getData(API_URL_2 + 'com=service&elem=vtg_user_info&func=getUserName', null)
+                HttpServices.getData(API_URL + 'com=service&elem=vtg_user_info&func=getUserName', null)
                         .then(function (response) {
                             console.log(response);
                             $scope.username = response.data.u_name;
@@ -30,7 +28,7 @@ angular
 
                 $scope.logout = function () {
                     $localStorage.remove('user');
-                    window.location.replace($scope.DOMAIN_VTIGER_2 + "index.php?module=Users&parent=Settings&action=Logout");
+                    $state.go('login');
                 };
 
                 $scope.user_data = {

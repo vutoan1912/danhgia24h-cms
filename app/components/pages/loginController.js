@@ -4,7 +4,8 @@ angular
         '$scope',
         '$rootScope',
         'utils',
-        function ($scope,$rootScope,utils) {
+        'HttpServices','API_URL','$state','$localStorage',
+        function ($scope,$rootScope,utils,HttpServices,API_URL,$state,$localStorage) {
 
             $scope.registerFormActive = false;
 
@@ -67,6 +68,26 @@ angular
                 $event.preventDefault();
                 utils.card_show_hide($login_card,undefined,password_reset_show,undefined);
             };
+
+            // toanvd
+
+            $scope.login = function () {
+                var params = {
+                    "email": $scope.login_username,
+                    "password": $scope.login_password,
+                    "rememberMe": true
+                };
+                //console.log(params);
+                HttpServices.postData(API_URL + 'auth/token', params)
+                    .then(function (response) {
+                        console.log(response);
+                        $localStorage.put('token', response.data, 1);
+                        $state.go('restricted.dashboard');
+                    })
+                    .catch(function (fallback) {
+
+                    });
+            }
 
         }
     ]);

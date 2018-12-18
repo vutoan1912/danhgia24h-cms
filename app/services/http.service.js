@@ -14,7 +14,7 @@ altairApp
                 //console.log(response);
                 if (response.status === 401 && parseInt(BYPASS_AUTH) !== 1) {
                     $localStorage.remove('token');
-                    $localStorage.remove('uid');
+                    $localStorage.remove('user');
                     $state.go('error.401');
                 }
             },
@@ -113,7 +113,7 @@ altairApp
             'getTokenLocal': function () {
                 self.Authorization = $localStorage.get('token');
             }
-        }
+        };
 
         return self;
 

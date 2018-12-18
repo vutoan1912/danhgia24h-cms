@@ -6,20 +6,7 @@
         .constant('VERSION', "0.0.1-SNAPSHOT")
         .constant('DEBUG_INFO_ENABLED', true)
         .constant('BUILD_TIMESTAMP', "")
-        //.constant('API_URL', "http://localhost:9000/vpcus/public/index.php/api/")
-        .constant('API_CHECK_LOGIN', "http://localhost:9000/")
-        .constant('VTIGER_LOGIN', "http://10.37.24.203/vtigercrm_test/index.php")
+        .constant('API_URL', "http://localhost:9092/api/")
         .constant('BYPASS_AUTH', "0")
-        .constant('DOMAIN_REDIRECT', "http://10.37.24.203")
-        .constant('DOMAIN_VTIGER', "http://10.37.24.203/crm-dev")
-        .constant('HOME_URL', "http://10.37.24.203/crm-dev/vpcus/public/index.html")
-        .constant('GR_AF', "AF_AUM")
-
-        //version 2
-        //.constant('API_URL_2', "http://10.37.0.11/vtigercrm_test/misv.php?")
-        //.constant('DOMAIN_VTIGER_2', "http://10.37.0.11/vtigercrm_test/")
-        .constant('API_URL_2', "http://localhost:9000/crm-staging/misv.php?")
-        .constant('DOMAIN_VTIGER_2', "http://localhost:9000/crm-staging/")
-        .constant('ROLE_BM', "Branch Manager")
     ;
 })();

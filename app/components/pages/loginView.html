@@ -14,7 +14,7 @@
                         <input class="md-input" type="password" id="login_password" ng-model="login_password" md-input />
                     </div>
                     <div class="uk-margin-medium-top">
-                        <a ui-sref="restricted.dashboard" class="md-btn md-btn-primary md-btn-block md-btn-large">Sign In</a>
+                        <a ng-click="login()" class="md-btn md-btn-primary md-btn-block md-btn-large">Sign In</a>
                     </div>
                     <div class="uk-grid uk-grid-width-1-3 uk-grid-small uk-margin-top">
                         <div><a href="#" class="md-btn md-btn-block md-btn-facebook" data-uk-tooltip="{pos:'bottom'}" title="Sign in with Facebook"><i class="uk-icon-facebook uk-margin-remove"></i></a></div>
@@ -46,7 +46,7 @@
                         <input class="md-input" type="text" id="login_email_reset" ng-model="login_email_reset" md-input />
                     </div>
                     <div class="uk-margin-medium-top">
-                        <a ui-sref="restricted.dashboard" class="md-btn md-btn-primary md-btn-block">Reset password</a>
+                        <a class="md-btn md-btn-primary md-btn-block">Reset password</a>
                     </div>
                 </form>
             </div>

@@ -44,16 +44,15 @@ altairApp.config(function($breadcrumbProvider) {
 /* detect IE */
 function detectIE(){var a=window.navigator.userAgent,b=a.indexOf("MSIE ");if(0<b)return parseInt(a.substring(b+5,a.indexOf(".",b)),10);if(0<a.indexOf("Trident/"))return b=a.indexOf("rv:"),parseInt(a.substring(b+3,a.indexOf(".",b)),10);b=a.indexOf("Edge/");return 0<b?parseInt(a.substring(b+5,a.indexOf(".",b)),10):!1};
 
-altairApp.run(["$rootScope", "$state", "$interval","$localStorage","$http","BYPASS_AUTH","API_URL_2","DOMAIN_VTIGER_2",
-    function ($rootScope, $state, $interval,$localStorage,$http,BYPASS_AUTH,API_URL_2,DOMAIN_VTIGER_2) {
+altairApp.run(["$rootScope", "$state", "$interval","$localStorage","$http","BYPASS_AUTH","API_URL",
+    function ($rootScope, $state, $interval,$localStorage,$http,BYPASS_AUTH,API_URL) {
 
    if(parseInt(BYPASS_AUTH) !== 1){
        var user = $localStorage.get('user');
        if (!angular.isDefined(user)) {
-
            $http({
                method: "GET",
-               url: API_URL_2 + 'com=service&elem=vtg_user_info&func=getUserInfo',
+               url: API_URL + 'com=service&elem=vtg_user_info&func=getUserInfo',
                params: null
            }).then(
                function mySucces(response) {
@@ -62,15 +61,17 @@ altairApp.run(["$rootScope", "$state", "$interval","$localStorage","$http","BYPA
                        $localStorage.put('user', response.data, 1);
                    } else {
                        $localStorage.remove('user');
-                       document.location = DOMAIN_VTIGER_2 + '/index.php';
+                       $localStorage.remove('token');
+                       $state.go('login');
                    }
                },
                function myError(response) {
                    console.log(response);
                    $localStorage.remove('user');
-                   if (response.status === 401) {
-                       document.location = DOMAIN_VTIGER_2 + '/index.php';
-                   }
+                   $localStorage.remove('token');
+                   //if (response.status === 401) {
+                       $state.go('login');
+                   //}
                }
            );
        }
