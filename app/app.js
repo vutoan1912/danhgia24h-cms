@@ -47,7 +47,7 @@ function detectIE(){var a=window.navigator.userAgent,b=a.indexOf("MSIE ");if(0<b
 altairApp.run(["$rootScope", "$state", "$interval","$localStorage","$http","BYPASS_AUTH","API_URL",
     function ($rootScope, $state, $interval,$localStorage,$http,BYPASS_AUTH,API_URL) {
 
-   if(parseInt(BYPASS_AUTH) !== 1){
+   if(parseInt(BYPASS_AUTH) !== 1 && $rootScope.toState.name !== 'login'){
        var user = $localStorage.get('user');
        if (!angular.isDefined(user)) {
            $http({
@@ -142,7 +142,11 @@ altairApp
 
             });
 
-            $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+            $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, toStateParams) {
+
+                $rootScope.toState = toState;
+                $rootScope.toStateParams = toStateParams;
+                $rootScope.fromState = fromState;
 
                 // main search
                 $rootScope.mainSearchActive = false;
