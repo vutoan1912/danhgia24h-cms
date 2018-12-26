@@ -1930,13 +1930,15 @@ altairApp
                         template: '<div ui-view autoscroll="false"/>',
                         abstract: true
                     })
+
+                    //article
                     .state("restricted.danhgia24h.article", {
                         url: "/article",
                         template: '<div ui-view autoscroll="false"/>',
                         abstract: true
                     })
                     .state("restricted.danhgia24h.article.list", {
-                        url: "/list",
+                        url: "/article-list",
                         templateUrl: 'app/components/danhgia24h/article/article-list.html',
                         controller: 'ArticleListCtrl',
                         resolve: {
@@ -1958,7 +1960,7 @@ altairApp
                         }
                     })
                     .state("restricted.danhgia24h.article.crud", {
-                        url: "/crud",
+                        url: "/article-crud",
                         templateUrl: 'app/components/danhgia24h/article/article-crud.html',
                         controller: 'ArticleCrudCtrl',
                         resolve: {
@@ -1978,6 +1980,36 @@ altairApp
                         },
                         data: {
                             pageTitle: 'Article'
+                        }
+                    })
+
+                    //product
+                    .state("restricted.danhgia24h.product", {
+                        url: "/product",
+                        template: '<div ui-view autoscroll="false"/>',
+                        abstract: true
+                    })
+                    .state("restricted.danhgia24h.product.crud", {
+                        url: "/product-crud",
+                        templateUrl: 'app/components/danhgia24h/product/product-crud.html',
+                        controller: 'ProductCrudCtrl',
+                        resolve: {
+                            deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                                return $ocLazyLoad.load([
+                                    'lazy_ckeditor',
+                                    'lazy_KendoUI',
+                                    'app/components/danhgia24h/product/product.service.js',
+                                    'lazy_pagination',
+                                    'app/components/danhgia24h/product/product-crud.controller.js'
+                                ]);
+                            }],
+                            translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                                $translatePartialLoader.addPart('product');
+                                return $translate.refresh();
+                            }]
+                        },
+                        data: {
+                            pageTitle: 'Product'
                         }
                     })
         }

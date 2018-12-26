@@ -90,7 +90,7 @@ angular
                     },
                     {
                         id: 2,
-                        title: 'Articles',
+                        title: 'Article',
                         icon: '&#xE8D2;',
                         //link: 'restricted.leads.crud'
                         submenu: [
@@ -102,6 +102,22 @@ angular
                                title: 'Crud',
                                link: 'restricted.danhgia24h.article.crud'
                            }
+                        ]
+                    },
+                    {
+                        id: 3,
+                        title: 'Product',
+                        icon: 'assignment_ind',
+                        //link: 'restricted.leads.crud'
+                        submenu: [
+                            {
+                                title: 'List',
+                                link: 'restricted.danhgia24h.product.list'
+                            },
+                            {
+                                title: 'Crud',
+                                link: 'restricted.danhgia24h.product.crud'
+                            }
                         ]
                     }
                     /*{
